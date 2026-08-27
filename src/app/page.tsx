@@ -16,7 +16,10 @@ import {
   HelpCircle,
   MessageSquare,
   Compass,
-  TrendingUp
+  TrendingUp,
+  Award,
+  Building2,
+  Star
 } from 'lucide-react';
 
 export default function HomePage() {
@@ -207,37 +210,62 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* METRICS STATS BAR */}
-      <section className="bg-white border-y border-slate-200/80 py-5 px-4 sm:px-6 lg:px-8 shadow-xs">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-6">
+      {/* REDESIGNED FLOATING METRICS STATS CARD */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 relative z-20">
+        <div className="bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-xl space-y-6 lg:space-y-0 lg:flex items-center justify-between gap-8 hover-lift">
           
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-slate-200 w-full lg:w-auto">
-            <div className="pr-6 sm:pr-8 pl-2">
-              <div className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">100%</div>
-              <div className="text-[10px] text-slate-500 font-mono font-bold uppercase tracking-widest mt-1">Satisfaction Clients</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8 divide-x-0 sm:divide-x divide-slate-100 flex-1">
+            
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 border border-emerald-100 flex items-center justify-center shrink-0 shadow-sm">
+                <Award className="w-6 h-6" />
+              </div>
+              <div>
+                <div className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">100%</div>
+                <div className="text-[10px] text-slate-500 font-mono font-bold uppercase tracking-wider">Satisfaction Rate</div>
+              </div>
             </div>
 
-            <div className="px-6 sm:px-8">
-              <div className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">500+</div>
-              <div className="text-[10px] text-slate-500 font-mono font-bold uppercase tracking-widest mt-1">Property Sales</div>
+            <div className="flex items-center gap-3 sm:pl-6">
+              <div className="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 border border-indigo-100 flex items-center justify-center shrink-0 shadow-sm">
+                <Building2 className="w-6 h-6" />
+              </div>
+              <div>
+                <div className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">500+</div>
+                <div className="text-[10px] text-slate-500 font-mono font-bold uppercase tracking-wider">Estates Sold</div>
+              </div>
             </div>
 
-            <div className="px-6 sm:px-8">
-              <div className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">150+</div>
-              <div className="text-[10px] text-slate-500 font-mono font-bold uppercase tracking-widest mt-1">Localities & Cities</div>
+            <div className="flex items-center gap-3 sm:pl-6">
+              <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 border border-amber-100 flex items-center justify-center shrink-0 shadow-sm">
+                <Compass className="w-6 h-6" />
+              </div>
+              <div>
+                <div className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">150+</div>
+                <div className="text-[10px] text-slate-500 font-mono font-bold uppercase tracking-wider">Prime Cities</div>
+              </div>
             </div>
 
-            <div className="pl-6 sm:pl-8">
-              <div className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">2,000+</div>
-              <div className="text-[10px] text-slate-500 font-mono font-bold uppercase tracking-widest mt-1">Positive Reviews</div>
+            <div className="flex items-center gap-3 sm:pl-6">
+              <div className="w-12 h-12 rounded-2xl bg-rose-50 text-rose-500 border border-rose-100 flex items-center justify-center shrink-0 shadow-sm">
+                <Star className="w-6 h-6 fill-rose-500" />
+              </div>
+              <div>
+                <div className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">2,000+</div>
+                <div className="text-[10px] text-slate-500 font-mono font-bold uppercase tracking-wider">5-Star Reviews</div>
+              </div>
             </div>
+
           </div>
 
-          <div className="hidden lg:flex items-center gap-3 bg-slate-100/90 px-4 py-2 rounded-full border border-slate-200 text-xs shadow-xs">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="font-semibold text-slate-700">Discover Properties with the Best Value</span>
-            <Link href="/properties" className="text-slate-900 font-bold hover:underline flex items-center gap-1">
-              <span>Explore →</span>
+          <div className="pt-4 lg:pt-0 border-t lg:border-t-0 border-slate-100 flex items-center justify-between lg:justify-end gap-4 shrink-0">
+            <Link
+              href="/properties"
+              className="w-full sm:w-auto px-6 py-3 rounded-2xl bg-slate-950 hover:bg-slate-800 text-white font-extrabold text-xs shadow-md transition-all flex items-center justify-center gap-2 group"
+            >
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span>Discover Properties</span>
+              <ArrowRight className="w-4 h-4 text-emerald-400 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
@@ -283,7 +311,6 @@ export default function HomePage() {
 
           <div className="lg:col-span-5 flex flex-col justify-between gap-6">
             
-            {/* Replaced generic black circle/white triangle with uploaded Z-roof brand logo */}
             <div className="bg-slate-100 p-6 rounded-3xl border border-slate-200 flex items-center justify-between gap-4">
               <div className="flex items-center gap-3">
                 <img
